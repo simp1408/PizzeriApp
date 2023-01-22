@@ -1,0 +1,72 @@
+﻿@model PizzeriApp.DettagliOrdine
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal text-white">
+    <h4>DettagliOrdine</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Quantita, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Quantita, new { htmlAttributes = new { @class = "form-control"} })
+            @Html.ValidationMessageFor(model => model.Quantita, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.IdPizza, "IdPizza", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("IdPizza", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IdPizza, "", new { @class = "text-danger" })
+        </div>
+    </div*@>
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.IdOrdini, "IdOrdini", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("IdOrdini", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IdOrdini, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.IdOrdini, "IdOrdini", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.IdOrdini, "IdOrdini", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.IdOrdini, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.IdUtente, "IdUtente", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.IdUtente, "IdUtente", new { htmlAttributes = new { @class = "control-label col-md-2" } })
+            @Html.ValidationMessageFor(model => model.IdUtente, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+    <div class="form-group text-white">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Avanti" class="btn btn-default text-white" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Menu")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

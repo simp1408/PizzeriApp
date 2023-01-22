@@ -1,0 +1,34 @@
+﻿@model IEnumerable<PizzeriApp.Pizza>
+
+@{
+    ViewBag.Title = "Menu";
+}
+
+<h2>Menu</h2>
+
+
+    <div class="container d-flex">
+        <div class="row">
+
+@foreach (var item in Model)
+{
+            <div class="col col-md-3 mt-3">
+               <div class="card" style="width:18rem;height:22rem">
+                   <img src="~/img/@item.Img" style="width:100px;height:auto;" alt="Alternate Text"class="mt-2 mx-auto justify-content-center align-items-center" />
+                   <div class="card-body mt-2 text-dark">
+                       <h5 class="card-title d-flex align-items-center justify-content-center mx-auto  my-4">@Html.DisplayFor(modelItem => item.NomePizza)</h5>
+                       <h6 class="card-subtitle d-flex mb-2 text-dark align-items-center justify-content-center  mx-auto  my-4">@Html.DisplayFor(modelItem => item.Ingredienti)</h6>
+                       <p class="card-text d-flex align-items-center justify-content-center  mx-auto my-4"> @Html.DisplayFor(modelItem => item.PrezzoPizza)</p>
+                      
+                   </div>
+                       <a>@Html.ActionLink("Details", "Details", new { id = item.IDpizza })</a>
+               </div>
+            </div>
+}
+        </div>
+    </div>
+        
+        
+
+   
+

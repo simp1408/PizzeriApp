@@ -1,0 +1,56 @@
+﻿@model PizzeriApp.Pizza
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Pizza</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomePizza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomePizza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ingredienti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ingredienti)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezzoPizza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezzoPizza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Img)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Img)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default text-white" /> |
+            @Html.ActionLink("Back to List", "Pizza")
+        </div>
+    }
+</div>

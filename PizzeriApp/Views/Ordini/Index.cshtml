@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PizzeriApp.Ordini>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Utente.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Confermato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Evaso)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Utente.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Confermato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Evaso)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDordini }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDordini }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDordini })
+        </td>
+    </tr>
+}
+
+</table>

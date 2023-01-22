@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PizzeriApp.DettagliOrdine>
+
+@{
+    ViewBag.Title = "Carrello";
+}
+
+<h2>Carrello</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ordini.Note)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pizza.NomePizza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Utente.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantita)
+        </th>
+        @*<th></th>*@
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ordini.Note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PizzaNome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeUtente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantita)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDdettagliOrdine }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDdettagliOrdine }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDdettagliOrdine })
+        </td>*@
+    </tr>
+}
+
+</table>
+@{ 
+    Html.RenderAction("PartialViewOrdine", "Ordini");
+}

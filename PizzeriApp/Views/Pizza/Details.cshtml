@@ -1,0 +1,50 @@
+﻿@model PizzeriApp.Pizza
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pizza</h4>
+    <hr />
+    <dl class="dl-horizontal text-white">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomePizza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomePizza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ingredienti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ingredienti)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezzoPizza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezzoPizza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Img)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.Img)
+        </dd>
+      
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("AVANTI", "Create","DettagliOrdine", new { id = Model.IDpizza }, new { @class = "text-white tex-decoration-none" }) |
+    @Html.ActionLink("Torna al Menu", "Menu")
+</p>

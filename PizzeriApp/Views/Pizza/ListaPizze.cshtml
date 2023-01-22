@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PizzeriApp.Pizza>
+
+@{
+    ViewBag.Title = "ListaPizze";
+}
+
+<h2 class="text-white d-flex justify-content-center align-items-center mx-auto">Lista delle Pizze</h2>
+<p>
+    @Html.ActionLink("Aggiungi una nuova Pizza", "Create","Pizza", new { @class = "text-warning tex-decoration-none" })
+</p>
+
+<table class="table text-white">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomePizza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ingredienti)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrezzoPizza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Img)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomePizza)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ingredienti)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrezzoPizza)
+        </td>
+       
+        <td>
+            <img src="~/img/@item.Img" style="width:50px;" alt="Alternate Text" />
+        </td>
+        <td>
+            @Html.ActionLink("Modifica", "Edit", new { id = item.IDpizza }, new { @class = "text-warning tex-decoration-none" })-
+            @Html.ActionLink("Cancella", "Delete", new { id = item.IDpizza }, new { @class = "text-warning tex-decoration-none" }) |
+           
+
+        </td>
+    </tr>
+}
+
+</table>
